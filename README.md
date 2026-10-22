@@ -34,7 +34,8 @@ Interactive API docs are at `/docs` when the server is running.
 ## Quick start
 ```bash
 git clone <this repo> && cd AgriAid
-python -m venv .venv && source .venv/bin/activate        # Windows: .venv\Scripts\activate
+python -m venv .venv
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -r backend/requirements.txt
 cp .env.example .env                                      # then put your GEMINI_API_KEY in .env
 cd backend && uvicorn app.main:app --reload               # open http://localhost:8000
@@ -73,12 +74,24 @@ python eval/run_eval.py --images data/PlantVillage --per-class 5   # optional ph
 ```
 Results are printed as a markdown table and saved in `eval/results/`.
 
-| Metric | English | Hindi |
-|---|---|---|
-| Diagnosis hit rate (30 text cases) | _run to fill_ | _run to fill_ |
-| Output-format compliance | _run to fill_ | _run to fill_ |
-| Latency p50 / p95 | _run to fill_ | _run to fill_ |
-| Off-topic rejection (5 prompts) | _run to fill_ | – |
+#### Latest live evaluation result
+
+Run: **22 October 2026** · Model: `gemini-3.5-flash-lite` · Language: English · Input: 30 labelled text cases and 5 off-topic prompts.
+
+| Metric | Measured result |
+|---|---:|
+| Labelled cases completed | 30 / 30 |
+| Top-3 diagnosis hit rate | **96.67%** (29 / 30) |
+| Output-format compliance | **100%** |
+| Median latency (p50) | **7.40 seconds** |
+| 95th-percentile latency (p95) | **51.10 seconds** |
+| Off-topic prompts rejected | **5 / 5 (100%)** |
+| Evaluation errors | **0** |
+
+The hit-rate metric is **top-3**, not top-1: the expected condition appeared among the model's first three suggested diagnoses. These figures are from one live run and are not a guarantee of field accuracy. Latency includes external model/API time and can vary with service load. Hindi evaluation has not yet been run for this result set; do not interpret the English metrics as multilingual model-quality measurements.
+
+Raw machine-readable output: [`eval_english_results.json`](eval_english_results.json).
+
 
 ## Project structure
 ```
@@ -88,6 +101,18 @@ translations/  UI strings per language (JSON)
 tests/         pytest suite · e2e_server.py · ui/ (jsdom)
 eval/          run_eval.py · cases.json
 ```
+
+## Screenshots
+
+The screenshots below show the final interface and example diagnosis outputs. The UI language is selected from the language dropdown; these examples show Hindi and Kannada.
+
+| Hindi — homepage | How it works |
+|---|---|
+| ![AgriAid Hindi homepage](docs/screenshots/hindi-homepage.png) | ![AgriAid how it works section](docs/screenshots/how-it-works.png) |
+
+| Hindi — photo diagnosis | Kannada — photo diagnosis |
+|---|---|
+| ![AgriAid Hindi photo diagnosis result](docs/screenshots/hindi-photo-diagnosis.png) | ![AgriAid Kannada photo diagnosis result](docs/screenshots/kannada-photo-diagnosis.png) |
 
 ## Notes & limitations
 - Diagnoses are AI suggestions; accuracy depends on input quality. For severe or widespread outbreaks, consult a local agronomist.
