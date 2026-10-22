@@ -108,11 +108,11 @@ The screenshots below show the final interface and example diagnosis outputs. Th
 
 | Hindi — homepage | How it works |
 |---|---|
-| ![AgriAid Hindi homepage](![alt text](image-2.png)) | ![AgriAid how it works section](![alt text](image-1.png)) |
+| ![AgriAid Hindi homepage](image-2.png) | ![AgriAid how it works section](image-1.png) |
 
 | Hindi — photo diagnosis | Kannada — photo diagnosis |
 |---|---|
-| ![AgriAid Hindi photo diagnosis result](![alt text](image-3.png)) | ![AgriAid Kannada photo diagnosis result](![alt text](image-4.png)) |
+| ![AgriAid Hindi photo diagnosis result](image-3.png) | ![AgriAid Kannada photo diagnosis result](image-4.png) |
 
 ## Notes & limitations
 - Diagnoses are AI suggestions; accuracy depends on input quality. For severe or widespread outbreaks, consult a local agronomist.
