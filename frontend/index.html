@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AgriAid – AI crop disease diagnosis in your language</title>
+  <meta name="description" content="Multilingual AI crop disease diagnosis for farmers.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav"><div class="container nav-inner">
+  <a href="#top" class="brand"><span class="brand-mark">🌱</span> AgriAid</a>
+  <nav class="nav-links" aria-label="Main">
+    <a href="#diagnose" data-i18n="nav_diagnose">Diagnose</a><a href="#how" data-i18n="nav_how">How it works</a><a href="#features" data-i18n="nav_features">Features</a><a href="#crops" data-i18n="nav_crops">Crops</a>
+  </nav>
+  <label class="lang-picker"><span class="sr-only" data-i18n="language_label">Language</span><select id="lang" aria-label="Language"></select></label>
+</div></header>
+<main id="top">
+<section class="hero"><div class="container hero-inner"><div class="hero-copy">
+  <p class="eyebrow" data-i18n="hero_eyebrow">AI-powered crop protection</p><h1 data-i18n="hero_title">Know what's wrong with your crop — in your own language.</h1>
+  <p class="lead" data-i18n="hero_lead">Describe the problem, upload a photo, or just speak. AgriAid gives you likely causes, treatment steps and prevention tips in seconds, and can read them aloud.</p>
+  <div class="hero-cta"><a href="#diagnose" class="btn btn-primary btn-lg" data-i18n="start_diagnosis">Start diagnosis</a><a href="#how" class="btn btn-ghost btn-lg" data-i18n="how_button">How it works</a></div>
+  <ul class="hero-stats"><li><strong>8</strong><span data-i18n="languages">languages</span></li><li><strong>3</strong><span data-i18n="input_modes">input modes</span></li><li><strong>🔊</strong><span data-i18n="audio_answers">audio answers</span></li></ul>
+</div><div class="hero-art" aria-hidden="true"><div class="art-card"><span>🍅</span><b data-i18n="art_early_blight">Early blight</b><small data-i18n="art_early_blight_tip">Remove infected leaves · Rotate crops</small></div><div class="art-card art-2"><span>🌾</span><b data-i18n="art_leaf_rust">Leaf rust</b><small data-i18n="art_leaf_rust_tip">Apply fungicide · Use resistant varieties</small></div></div></div></section>
+<section id="diagnose" class="section"><div class="container">
+  <h2 class="section-title" data-i18n="title">Crop disease diagnosis</h2><p class="section-sub" data-i18n="supported_crops">Supported crops: tomatoes, potatoes, wheat, rice, and common vegetables</p>
+  <div class="tool"><div class="tool-input"><div class="tabs" role="tablist" aria-label="Input type">
+    <button class="tab active" role="tab" data-tab="text" aria-selected="true" data-i18n="tab_text">✍️ Text</button><button class="tab" role="tab" data-tab="image" aria-selected="false" data-i18n="tab_photo">📷 Photo</button><button class="tab" role="tab" data-tab="audio" aria-selected="false" data-i18n="tab_voice">🎙️ Voice</button>
+  </div>
+  <div class="panel" id="panel-text"><label for="text-input" class="field-label" data-i18n="describe_issue">Describe the issue in your language</label><textarea id="text-input" rows="6" maxlength="2000" data-i18n-placeholder="text_placeholder" placeholder="e.g., My tomato leaves have yellow spots..."></textarea><div class="field-foot"><span class="chips" id="examples"></span><span class="counter" id="counter">0 / 2000</span></div></div>
+  <div class="panel hidden" id="panel-image"><label class="dropzone" id="dropzone" for="image-input"><input type="file" id="image-input" accept="image/jpeg,image/png,image/webp" hidden><img id="image-preview" class="hidden" alt="Selected crop photo"><div id="drop-hint"><div class="drop-icon">📷</div><strong data-i18n="upload_image">Upload crop image</strong><small data-i18n="drop_image">Drag &amp; drop or click · JPG, PNG, WEBP · max 8 MB</small></div></label><p class="tip" data-i18n="photo_tip">Tip: take a close, well-lit photo of the affected leaf.</p></div>
+  <div class="panel hidden" id="panel-audio"><div class="recorder"><button id="rec-btn" class="rec-btn" type="button" aria-label="Start recording"><span class="rec-dot"></span></button><div><strong id="rec-status" data-i18n="click_to_record">Click to record</strong><div class="rec-time" id="rec-time">0:00</div></div></div><audio id="audio-preview" class="hidden" controls></audio><div class="or"><span data-i18n="or_upload_audio">Or upload an audio file</span></div><input type="file" id="audio-input" accept="audio/wav,audio/mpeg,audio/mp3,audio/ogg,audio/flac,audio/aac,.wav,.mp3,.ogg,.flac,.aac"><p class="tip" id="audio-name"></p></div>
+  <div id="error" class="alert hidden" role="alert"></div><button id="submit" class="btn btn-primary btn-block" type="button" data-i18n="diagnose">Diagnose</button>
+  </div><div class="tool-result" id="result-wrap" aria-live="polite"><div class="empty" id="empty"><div class="empty-icon">🌿</div><p data-i18n="empty_result">Your diagnosis will appear here.</p></div>
+  <div class="loading hidden" id="loading"><div class="spinner"></div><p data-i18n="analyzing">Analyzing...</p><div class="skeleton"></div><div class="skeleton short"></div><div class="skeleton"></div></div>
+  <article class="result hidden" id="result"><header class="result-head"><div><p class="eyebrow" id="r-label" data-i18n="diagnosis">Diagnosis</p><h3 id="r-title"></h3></div><span class="badge hidden" id="r-contagion"></span></header>
+  <div class="meter hidden" id="r-meter"><div class="meter-label"><span id="r-conf-label" data-i18n="confidence">Confidence</span><b id="r-conf"></b></div><div class="meter-bar"><div id="r-conf-bar"></div></div></div><blockquote class="transcript hidden" id="r-transcript"></blockquote><ol class="list" id="r-diagnosis"></ol>
+  <section class="block"><h4 id="r-rem-label">💊 <span data-i18n="remedies">Remedies</span></h4><ol class="list" id="r-remedies"></ol></section><section class="block"><h4 id="r-prev-label">🌱 <span data-i18n="prevention">Prevention</span></h4><ol class="list" id="r-prevention"></ol></section>
+  <p class="notice hidden" id="r-untranslated" data-i18n="translation_unavailable">The requested language response could not be generated. Please try again.</p>
+  <div class="result-actions"><button class="btn btn-ghost" id="listen" type="button" data-i18n="listen">🔊 Listen</button><button class="btn btn-ghost" id="copy" type="button" data-i18n="copy">📋 Copy</button><button class="btn btn-ghost" id="print" type="button" data-i18n="print">🖨️ Print</button></div><audio id="player" class="hidden" controls></audio><p class="disclaimer" data-i18n="disclaimer">AI guidance only. For serious or widespread outbreaks, consult a local agronomist.</p></article>
+  </div></div></div></section>
+<section id="how" class="section alt"><div class="container"><h2 class="section-title" data-i18n="how_title">How it works</h2><div class="grid3">
+  <div class="card step"><span class="num">1</span><h3 data-i18n="step1_title">Tell us the problem</h3><p data-i18n="step1_text">Type symptoms in any supported language, upload a photo of the leaf, or record a short voice note.</p></div>
+  <div class="card step"><span class="num">2</span><h3 data-i18n="step2_title">AI analyses it</h3><p data-i18n="step2_text">AgriAid identifies likely diseases, pests or deficiencies and estimates confidence.</p></div>
+  <div class="card step"><span class="num">3</span><h3 data-i18n="step3_title">Get a plan</h3><p data-i18n="step3_text">Receive treatment steps and prevention tips in your language — and listen to them if reading is hard.</p></div>
+</div></div></section>
+<section id="features" class="section"><div class="container"><h2 class="section-title" data-i18n="features_title">Built for farmers</h2><div class="grid3">
+  <div class="card"><div class="ficon">🌐</div><h3 data-i18n="feature_languages_title">8 languages</h3><p data-i18n="feature_languages_text">English, Hindi, Telugu, Tamil, Kannada, Punjabi, Bengali and Gujarati.</p></div>
+  <div class="card"><div class="ficon">🎙️</div><h3 data-i18n="feature_voice_title">Speak or type</h3><p data-i18n="feature_voice_text">Voice input transcribes your description, even in regional languages.</p></div>
+  <div class="card"><div class="ficon">📷</div><h3 data-i18n="feature_photo_title">Photo diagnosis</h3><p data-i18n="feature_photo_text">Upload an image of the affected plant for a visual assessment.</p></div>
+  <div class="card"><div class="ficon">🔊</div><h3 data-i18n="feature_audio_title">Audio answers</h3><p data-i18n="feature_audio_text">Hear the diagnosis and remedies read out in your language.</p></div>
+  <div class="card"><div class="ficon">📱</div><h3 data-i18n="feature_phone_title">Works on any phone</h3><p data-i18n="feature_phone_text">Responsive design that works on low-end phones and desktops alike.</p></div>
+  <div class="card"><div class="ficon">🛡️</div><h3 data-i18n="feature_private_title">Private by design</h3><p data-i18n="feature_private_text">No account needed. Photos and audio are not stored by AgriAid.</p></div>
+</div></div></section>
+<section id="crops" class="section alt"><div class="container"><h2 class="section-title" data-i18n="crops_title">Crops we handle well</h2><div class="crop-row">
+  <span>🍅 <span data-i18n="crop_tomato">Tomato</span></span><span>🥔 <span data-i18n="crop_potato">Potato</span></span><span>🌾 <span data-i18n="crop_wheat">Wheat</span></span><span>🍚 <span data-i18n="crop_rice">Rice</span></span><span>🌶️ <span data-i18n="crop_chilli">Chilli</span></span><span>🥬 <span data-i18n="crop_leafy">Leafy vegetables</span></span><span>🍆 <span data-i18n="crop_brinjal">Brinjal</span></span><span>🌽 <span data-i18n="crop_maize">Maize</span></span>
+</div><p class="section-sub" data-i18n="crop_note">Diagnoses are AI suggestions and accuracy depends on input quality. Always confirm severe cases with a local agronomist or agriculture office.</p></div></section>
+</main><footer class="footer"><div class="container footer-inner"><div><a href="#top" class="brand"><span class="brand-mark">🌱</span> AgriAid</a><p data-i18n="footer_tagline">AI-powered crop disease diagnosis for farmers.</p></div><p class="small">© <span id="year"></span> AgriAid · <span data-i18n="footer_powered">Powered by Google Gemini</span></p></div></footer>
+<script src="app.js?v=20261022-i18n-json-2"></script>
+</body></html>

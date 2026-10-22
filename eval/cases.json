@@ -1,0 +1,42 @@
+{
+  "note": "Expected conditions are author-labelled from standard crop-pathology references. A case passes if ANY expected keyword appears in the diagnosis section.",
+  "text_cases": [
+    {"crop":"tomato","text":"Tomato lower leaves have brown spots with concentric dark rings and yellow halos, older leaves dying first.","expect":["early blight","alternaria"]},
+    {"crop":"tomato","text":"Dark water-soaked patches on tomato leaves with white fuzzy growth underneath, spreading very fast after rain.","expect":["late blight","phytophthora"]},
+    {"crop":"squash","text":"White powdery coating on the upper side of my squash leaves, leaves turning yellow and drying.","expect":["powdery mildew"]},
+    {"crop":"wheat","text":"Orange-brown powdery pustules on wheat leaves that rub off on my fingers.","expect":["rust"]},
+    {"crop":"rice","text":"Rice leaves have diamond-shaped spots with grey centre and brown border, some neck of panicle turned black.","expect":["blast","magnaporthe"]},
+    {"crop":"tomato","text":"Tomato leaves curl upward and turn yellow at the edges, plants are stunted, many whiteflies on the plants.","expect":["leaf curl","virus","whitefl"]},
+    {"crop":"rice","text":"Rice leaves show yellow wavy margins starting at the tips, drying out, seedlings wilting.","expect":["bacterial leaf blight","bacterial blight","xanthomonas"]},
+    {"crop":"potato","text":"Potato tubers have rough brown scabby corky patches on the skin.","expect":["common scab","scab"]},
+    {"crop":"tomato","text":"Tomato fruits have a dark sunken leathery patch at the bottom end opposite the stem.","expect":["blossom end rot","calcium"]},
+    {"crop":"cucumber","text":"Cucumber leaves have yellow angular patches with purple-grey fuzz on the underside.","expect":["downy mildew"]},
+    {"crop":"chilli","text":"Chilli leaves are curled upward and crinkled, tiny insects on the underside, sticky honeydew on leaves.","expect":["thrips","mite","aphid","leaf curl","whitefl"]},
+    {"crop":"wheat","text":"White powdery growth on wheat leaves and stems, getting grey-brown later.","expect":["powdery mildew"]},
+    {"crop":"rice","text":"Rice leaf sheath has oval greenish-grey lesions with brown border looking like snake skin pattern.","expect":["sheath blight","rhizoctonia"]},
+    {"crop":"tomato","text":"Whole tomato plant is wilting while leaves stay green, and the inside of the stem is brown.","expect":["fusarium","bacterial wilt","verticillium","wilt"]},
+    {"crop":"potato","text":"Potato lower leaves yellowing with small dry brown spots showing concentric rings.","expect":["early blight","alternaria"]},
+    {"crop":"maize","text":"Maize leaves have long grey-tan rectangular lesions between the veins.","expect":["gray leaf spot","grey leaf spot","northern corn leaf blight","leaf blight","cercospora","turcicum"]},
+    {"crop":"brinjal","text":"Brinjal leaves are full of tiny round holes and I can see small black jumping beetles.","expect":["flea beetle","beetle"]},
+    {"crop":"cabbage","text":"Cabbage leaves have many holes and I found green caterpillars hiding on the leaves.","expect":["caterpillar","cabbage worm","diamondback","armyworm","looper","moth"]},
+    {"crop":"tomato","text":"Older tomato leaves are uniformly pale yellow, growth is slow and plants are weak.","expect":["nitrogen"]},
+    {"crop":"maize","text":"Young maize plants are stunted with purple tint on leaf edges.","expect":["phosphorus","phosphate"]},
+    {"crop":"tomato","text":"Edges of older tomato leaves are scorched brown and curling.","expect":["potassium"]},
+    {"crop":"tomato","text":"Tomato has small dark spots with yellow halo on leaves and raised scabby spots on fruit.","expect":["bacterial spot","bacterial speck","xanthomonas","pseudomonas"]},
+    {"crop":"tomato","text":"Small circular spots with grey centres and dark borders with tiny black dots on lower tomato leaves.","expect":["septoria"]},
+    {"crop":"rice","text":"Rice seedlings have oval brown spots on leaves with yellow halo.","expect":["brown spot","bipolaris","helminthosporium"]},
+    {"crop":"wheat","text":"Wheat ear heads are replaced by black powdery masses.","expect":["smut"]},
+    {"crop":"potato","text":"Potato leaves roll upward, plants are stunted and there are many aphids.","expect":["leaf roll","virus","aphid"]},
+    {"crop":"chilli","text":"Chilli fruits have dark sunken circular spots with concentric rings.","expect":["anthracnose","colletotrichum"]},
+    {"crop":"cabbage","text":"Cabbage leaves have V-shaped yellow lesions starting at the leaf edge with blackened veins.","expect":["black rot","xanthomonas"]},
+    {"crop":"tomato","text":"Tomato fruits have round holes and a caterpillar is inside the fruit.","expect":["fruit borer","helicoverpa","borer","caterpillar"]},
+    {"crop":"brinjal","text":"Brinjal shoot tips are wilting and fruits have bore holes with excreta.","expect":["shoot and fruit borer","borer","leucinodes"]}
+  ],
+  "off_topic": [
+    "What is the best smartphone under 20000 rupees?",
+    "Write a poem about the moon.",
+    "Who won the cricket match yesterday?",
+    "How do I fix a leaking tap in my bathroom?",
+    "Explain how the stock market works."
+  ]
+}
