@@ -1,0 +1,30 @@
+{
+    "language_name": "English",
+    "strings": {
+        "title": "🌾 Multilingual Crop Disease Diagnosis",
+        "select_lang": "Select your language",
+        "input_type": "Choose input type:",
+        "text_placeholder": "e.g., My tomato leaves have yellow spots...",
+        "describe_issue": "Describe the issue in your language",
+        "upload_image": "Upload crop image",
+        "upload_audio": "Upload audio (mp3, wav)",
+        "diagnose": "Diagnose",
+        "warning": "Please describe the crop issue",
+        "footer": "AgriAid - AI-powered crop protection\nNote: Diagnosis accuracy depends on input quality. For critical cases, consult an agronomist.",
+        "how_to_use": "How to use",
+        "supported_crops": "Supported crops: Tomatoes, potatoes, wheat, rice, and common vegetables",
+        "analyzing": "Analyzing...",
+        "diagnosis_header": "Diagnosis & Remedy",
+        "error": "Error during analysis:",
+        "or_record_audio": "Or record audio",
+    "click_to_record": "Click to record"
+    },
+    "instructions": [
+        "Select your preferred language",
+        "Choose input method:",
+        "Text: Describe symptoms",
+        "Image: Upload clear photos",
+        "Audio: Record voice description",
+        "Click 'Diagnose'"
+    ]
+}

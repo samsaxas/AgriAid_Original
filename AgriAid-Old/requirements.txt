@@ -1,0 +1,10 @@
+streamlit
+Pillow
+python-dotenv
+pydub
+google-generativeai
+googletrans
+speechrecognition
+langdetect
+deep-translator
+gTTS
