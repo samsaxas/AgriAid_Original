@@ -1,5 +1,7 @@
 # 🌱 AgriAid — Multilingual Crop Disease Diagnosis
 
+**Link:** [AgriAid](http://localhost:8002/)
+
 AgriAid helps farmers diagnose crop problems and get treatment and prevention advice **in their own language**. Describe the problem in text, upload a photo of the affected plant, or record a voice note, and AgriAid returns likely causes, remedies and prevention steps, and can read them aloud.
 
 It is a full-stack web app: a **FastAPI** backend (Google Gemini for analysis) and a standalone, responsive **website** frontend (plain HTML/CSS/JavaScript, no build step).
